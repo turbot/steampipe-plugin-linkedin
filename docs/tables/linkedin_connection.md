@@ -19,7 +19,7 @@ from
   linkedin_connection as c,
   linkedin_profile as p
 where
-  p.username = 'e-gineer'
+  p.public_identifier = 'e-gineer'
   and c.profile_id = p.id
 limit
   10;

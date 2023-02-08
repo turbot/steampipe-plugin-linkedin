@@ -3,7 +3,7 @@
 Search companies on LinkedIn.
 
 Notes:
-* `query` must be specified in the where clause of queries.
+* `query` must be specified in the `where` clause of queries.
 * Hard limit of 100 rows per search query.
 
 ## Examples
@@ -19,5 +19,5 @@ select
 from
   linkedin_search_company
 where
-  query = 'turbot'
+  query = 'turbot';
 ```

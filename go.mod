@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/tamboto2000/golinkedin v1.12.0
-	github.com/turbot/steampipe-plugin-sdk/v5 v5.2.0-rc.3
+	github.com/turbot/steampipe-plugin-sdk/v5 v5.2.0-rc.4
 )
 
 require (

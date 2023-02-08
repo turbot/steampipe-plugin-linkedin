@@ -3,7 +3,7 @@
 Search profiles of people on LinkedIn.
 
 Notes:
-* `query` must be specified in the where clause of queries.
+* `query` must be specified in the `where` clause of queries.
 * Hard limit of 100 rows per search query.
 
 ## Examples
@@ -18,7 +18,7 @@ select
 from
   linkedin_search_profile
 where
-  query = 'nathan wallace'
+  query = 'nathan wallace';
 ```
 
 ### Search for a profile by name and company
@@ -31,5 +31,5 @@ select
 from
   linkedin_search_profile
 where
-  query = 'nathan wallace turbot'
+  query = 'nathan wallace turbot';
 ```

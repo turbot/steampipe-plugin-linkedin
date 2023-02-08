@@ -3,7 +3,7 @@
 Get profile information for a given user.
 
 Notes:
-* `public_identifier` must be specified in the where clause of queries.
+* `public_identifier` must be specified in the `where` clause of queries.
 
 ## Examples
 
@@ -19,7 +19,7 @@ select
 from
   linkedin_profile
 where
-  public_identifier = 'dboeke'
+  public_identifier = 'dboeke';
 ```
 
 ### List positions for a profile
@@ -38,7 +38,7 @@ from
 where
   p.public_identifier = 'nathan-wallace-86470'
 order by
-  start_year desc
+  start_year desc;
 ```
 
 ### List skills for a profile
@@ -50,7 +50,7 @@ from
   linkedin_profile as p,
   jsonb_array_elements(skills) as s
 where
-  p.public_identifier = 'dboeke'
+  p.public_identifier = 'dboeke';
 ```
 
 ### List education history for a profile
@@ -67,7 +67,7 @@ from
 where
   p.public_identifier = 'e-gineer'
 order by
-  start_year desc
+  start_year desc;
 ```
 
 ### List certifications for a profile
@@ -79,5 +79,5 @@ from
   linkedin_profile as p,
   jsonb_array_elements(certifications) as c
 where
-  p.public_identifier = 'dglosser'
+  p.public_identifier = 'dglosser';
 ```

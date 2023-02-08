@@ -3,7 +3,7 @@
 List connections (1st level only) for a given profile.
 
 Notes:
-* `profile_id` must be specified in the where clause of queries.
+* `profile_id` must be specified in the `where` clause of queries.
 * Use `query` to narrow the connection list by name, etc.
 
 ## Examples
@@ -22,7 +22,7 @@ where
   p.username = 'e-gineer'
   and c.profile_id = p.id
 limit
-  10
+  10;
 ```
 
 ### Find connections called Dave for a profile (by ID)
@@ -36,5 +36,5 @@ from
   linkedin_connection
 where
   profile_id = 146380
-  and query = 'dave'
+  and query = 'dave';
 ```

@@ -27,7 +27,7 @@ from
   linkedin_company_employee
 where
   company_id = 7599466
-  and query = 'dave'
+  and query = 'dave';
 ```
 
 ```

@@ -64,10 +64,10 @@ func connectUncached(ctx context.Context, d *plugin.QueryData, _ *plugin.Hydrate
 func extractProfileIDFromUrn(ctx context.Context, d *transform.TransformData) (interface{}, error) {
 	urn := d.Value.(string)
 	// TrackingUrn includes the profile ID
-	plugin.Logger(ctx).Warn("extractProfileIDFromUrn", "urn", urn)
+	plugin.Logger(ctx).Debug("extractProfileIDFromUrn", "urn", urn)
 	parts := strings.Split(urn, ":")
 	if len(parts) < 4 {
-		plugin.Logger(ctx).Warn("extractProfileIDFromUrn", "urn", urn, "parts", parts)
+		plugin.Logger(ctx).Debug("extractProfileIDFromUrn", "urn", urn, "parts", parts)
 		return nil, nil
 	}
 	id, err := strconv.Atoi(parts[3])

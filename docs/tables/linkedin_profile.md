@@ -81,3 +81,39 @@ from
 where
   p.public_identifier = 'dglosser';
 ```
+
+### List contact details for a profile
+
+```sql
+select
+  first_name,
+  last_name,
+  contact_info ->> 'emailAddress' as email,
+  contact_info -> 'address' as address 
+from
+  linkedin_profile 
+where
+  public_identifier = 'tuhintypical';
+```
+
+### List additional contact details from nested arrays for a profile
+
+```sql
+select
+  first_name,
+  last_name,
+  contact_info ->> 'emailAddress' as email,
+  contact_info -> 'address' as address,
+  twitter.value ->> 'name' as twitter_handle,
+  phone.value ->> 'number' as phone_number 
+from
+  linkedin_profile 
+  left join
+    jsonb_array_elements(contact_info -> 'twitterHandles') as twitter 
+    on true 
+  left join
+    jsonb_array_elements(contact_info -> 'phoneNumbers') as phone 
+    on true 
+where
+  public_identifier = 'tuhintypical';
+```

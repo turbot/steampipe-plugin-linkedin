@@ -6,7 +6,7 @@ Use SQL to query profiles, companies, connections & more from [LinkedIn](https:/
 
 * **[Get started →](https://hub.steampipe.io/plugins/turbot/linkedin)**
 * Documentation: [Table definitions & examples](https://hub.steampipe.io/plugins/turbot/linkedin/tables)
-* Community: [Slack Channel](https://steampipe.io/community/join)
+* Community: [Join #steampipe on Slack →](https://turbot.com/community/join)
 * Get involved: [Issues](https://github.com/turbot/steampipe-plugin-linkedin/issues)
 
 ## Quick start

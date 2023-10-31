@@ -624,8 +624,8 @@ github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcUk=
 github.com/stretchr/testify v1.8.4/go.mod h1:sz/lmYIOXD/1dqDmKjjqLyZ2RngseejIcXlSw2iwfAo=
-github.com/tamboto2000/golinkedin v1.12.0 h1:fl2Xs60zOR+5YddU6OcQKJDtQSKpxRU0Q+BHirC1V3o=
-github.com/tamboto2000/golinkedin v1.12.0/go.mod h1:16kOFqOFz8JH/skEGZso/2kZsqlHkyJnSJE+Jgf6E9Q=
+github.com/tamboto2000/golinkedin v1.12.1 h1:tMdfHIuQBQqAlbnbbHz47DYyypBhJMq67tkNHyPVxiA=
+github.com/tamboto2000/golinkedin v1.12.1/go.mod h1:16kOFqOFz8JH/skEGZso/2kZsqlHkyJnSJE+Jgf6E9Q=
 github.com/tkrajina/go-reflector v0.5.6 h1:hKQ0gyocG7vgMD2M3dRlYN6WBBOmdoOzJ6njQSepKdE=
 github.com/tkrajina/go-reflector v0.5.6/go.mod h1:ECbqLgccecY5kPmPmXg1MrHW585yMcDkVl6IvJe64T4=
 github.com/turbot/go-kit v0.8.0-rc.0 h1:Vj1w5TmZWwdSwBTcOq6FKVlQQ+XwCd27BZVPZ9m1hT0=

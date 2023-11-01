@@ -5,7 +5,7 @@ icon_url: "/images/plugins/turbot/linkedin.svg"
 brand_color: "#0077B5"
 display_name: LinkedIn
 name: linkedin
-description: Steampipe plugin to query LinkedIn profiles, companies, connections & more.
+description: Steampipe plugin to query LinkedIn profiles.
 og_description: Query LinkedIn with SQL! Open source CLI. No DB required.
 og_image: "/images/plugins/turbot/linkedin-social-graphic.png"
 ---
@@ -20,23 +20,23 @@ Example query:
 
 ```sql
 select
-  id,
-  title,
-  headline
+  first_name,
+  last_name,
+  headline,
+  public_identifier,
+  industry
 from
-  linkedin_company_employee
+  linkedin_profile
 where
-  company_id = 7599466
-  and query = 'dave';
+  public_identifier = 'dave';
 ```
 
 ```
-+----------+--------------+----------+
-| id       | title        | headline |
-+----------+--------------+----------+
-| 13016000 | David Jones  | CTO      |
-|  4819034 | Dave Beecham | Engineer |
-+----------+--------------+----------+
++------------+-----------+------------------------------------+-------------------+-------------------+
+| first_name | last_name | headline                           | public_identifier | industry          |
++------------+-----------+------------------------------------+-------------------+-------------------+
+| Dave       | Jones     | Engineering Manager                | dave              | Computer Software |
++------------+-----------+------------------------------------+-------------------+-------------------+
 ```
 
 ## Documentation

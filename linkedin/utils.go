@@ -14,18 +14,6 @@ import (
 	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
 )
 
-type searchProfileRow struct {
-	golinkedin.People
-	// Return rank to sort results
-	Rank int `json:"rank"`
-}
-
-type searchCompanyRow struct {
-	golinkedin.Company
-	// Return rank to sort results
-	Rank int `json:"rank"`
-}
-
 func connect(ctx context.Context, d *plugin.QueryData) (*golinkedin.Linkedin, error) {
 	conn, err := connectCached(ctx, d, nil)
 	if err != nil {

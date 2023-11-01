@@ -1,3 +1,14 @@
+## v0.3.0 [2023-11-01]
+
+_Breaking Changes_
+
+- Removed support for several tables due to limitations in the SDK
+  - `linkedin_company_employee`
+  - `linkedin_company_past_employee`
+  - `linkedin_connection`
+  - `linkedin_search_company`
+  - `linkedin_search_profile`
+
 ## v0.2.1 [2023-10-05]
 
 _Dependencies_

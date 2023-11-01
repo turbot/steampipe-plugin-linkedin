@@ -2,7 +2,7 @@
 
 # LinkedIn Plugin for Steampipe
 
-Use SQL to query profiles, companies, connections & more from [LinkedIn](https://linkedin.com).
+Use SQL to query profiles from [LinkedIn](https://linkedin.com).
 
 * **[Get started →](https://hub.steampipe.io/plugins/turbot/linkedin)**
 * Documentation: [Table definitions & examples](https://hub.steampipe.io/plugins/turbot/linkedin/tables)
@@ -37,23 +37,23 @@ Run a query:
 
 ```sql
 select
-  id,
-  title,
-  headline
+  first_name,
+  last_name,
+  headline,
+  public_identifier,
+  industry
 from
-  linkedin_company_employee
+  linkedin_profile
 where
-  company_id = 7599466
-  and query = 'dave';
+  public_identifier = 'dave';
 ```
 
 ```
-+----------+--------------+----------+
-| id       | title        | headline |
-+----------+--------------+----------+
-| 13016000 | David Jones  | CTO      |
-|  4819034 | Dave Beecham | Engineer |
-+----------+--------------+----------+
++------------+-----------+------------------------------------+-------------------+-------------------+
+| first_name | last_name | headline                           | public_identifier | industry          |
++------------+-----------+------------------------------------+-------------------+-------------------+
+| Dave       | Jones     | Engineering Manager                | dave              | Computer Software |
++------------+-----------+------------------------------------+-------------------+-------------------+
 ```
 
 ## Developing

@@ -1,3 +1,15 @@
+
+## v0.4.0 [TBD]
+
+_Breaking Changes_
+
+- Removed the following tables using the search API that no longer work due to API limitations. These tables will be added back if functionality can be restoerd.
+  - `linkedin_company_employee`
+  - `linkedin_company_past_employee`
+  - `linkedin_connection`
+  - `linkedin_search_company`
+  - `linkedin_search_profile`
+
 ## v0.3.0 [2023-11-01]
 
 _Enhancements_

@@ -33,6 +33,7 @@ func tableLinkedInProfile(ctx context.Context) *plugin.Table {
 			{Name: "positions", Type: proto.ColumnType_JSON, Transform: transform.FromField("ProfilePositionGroups.Elements"), Description: "Position history for the profile."},
 			{Name: "certifications", Type: proto.ColumnType_JSON, Transform: transform.FromField("ProfileCertifications.Elements"), Description: "Certifications for the profile."},
 			// Metadata about the profile
+			{Name: "contact_info", Type: proto.ColumnType_JSON, Transform: transform.FromField("ContactInfo"), Description: "Contact information for the profile."},
 			{Name: "location", Type: proto.ColumnType_JSON, Description: "Location (postal code, country code, etc)of the profile."},
 			{Name: "entity_urn", Type: proto.ColumnType_STRING, Transform: transform.FromField("EntityUrn"), Description: "URN of the profile object, urn:li:fsd_profile:ACoABADFm8QC8-YyrOV8IGjS8vbKTPjX2vrSjPM."},
 			{Name: "object_urn", Type: proto.ColumnType_STRING, Transform: transform.FromField("ObjectUrn"), Description: "URN of the profile object, urn:li:member:12341234."},
@@ -59,13 +60,19 @@ func listProfile(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData
 		return nil, err
 	}
 
-	rank := 0
 	for _, profile := range profileNode.Elements {
-		rank++
-		d.StreamListItem(ctx, profile)
-		if d.RowsRemaining(ctx) <= 0 {
-			break
+		// Fetch contact info
+		contactInfo, err := profileNode.ContactInfo()
+		if err != nil {
+			plugin.Logger(ctx).Error("linkedin_profile.listProfile", "contact_info_error", err)
+			return nil, err
 		}
+
+		// Add contact info to profile
+		profile.ContactInfo = contactInfo
+
+		// Stream the profile object
+		d.StreamListItem(ctx, profile)
 	}
 
 	return nil, nil

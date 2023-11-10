@@ -1,4 +1,5 @@
-## v0.3.0 [TBD]
+
+## v0.4.0 [TBD]
 
 _Breaking Changes_
 
@@ -8,6 +9,12 @@ _Breaking Changes_
   - `linkedin_connection`
   - `linkedin_search_company`
   - `linkedin_search_profile`
+
+## v0.3.0 [2023-11-01]
+
+_Enhancements_
+
+- Added the `contact_info` column to `linkedin_profile` table. ([#5](https://github.com/turbot/steampipe-plugin-linkedin/pull/5))
 
 ## v0.2.1 [2023-10-05]
 

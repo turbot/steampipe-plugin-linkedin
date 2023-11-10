@@ -1,8 +1,8 @@
-## v0.3.0 [2023-11-01]
+## v0.3.0 [TBD]
 
 _Breaking Changes_
 
-- Removed support for several tables due to limitations in the SDK
+- Removed the following tables using the search API that no longer work due to API limitations. These tables will be added back if functionality can be restoerd.
   - `linkedin_company_employee`
   - `linkedin_company_past_employee`
   - `linkedin_connection`

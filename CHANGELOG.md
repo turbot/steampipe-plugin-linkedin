@@ -1,5 +1,4 @@
-
-## v0.4.0 [TBD]
+## v0.4.0 [2023-11-14]
 
 _Breaking Changes_
 

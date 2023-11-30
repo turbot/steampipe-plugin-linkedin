@@ -1,13 +1,20 @@
-# Table: linkedin_profile
+---
+title: "Steampipe Table: linkedin_profile - Query LinkedIn Profiles using SQL"
+description: "Allows users to query LinkedIn Profiles, specifically to retrieve detailed information about the users' professional experiences, skills, education, and more."
+---
 
-Get profile information for a given user.
+# Table: linkedin_profile - Query LinkedIn Profiles using SQL
 
-Notes:
-* `public_identifier` must be specified in the `where` clause of queries.
+LinkedIn is a professional networking platform that allows users to create profiles, connect with others, and share content. Users' profiles contain detailed information about their professional experiences, skills, education, and more. This information can be leveraged for various purposes such as recruitment, networking, and business development.
+
+## Table Usage Guide
+
+The `linkedin_profile` table provides insights into LinkedIn profiles. As a recruiter or business development professional, explore profile-specific details through this table, including professional experiences, skills, and education. Utilize it to uncover information about potential candidates, such as their qualifications, experience, and skills, or to identify potential business partners.
 
 ## Examples
 
 ### Get profile information
+Explore personal profile details on LinkedIn by specifying a user's public identifier. This can be useful in gathering industry-specific insights or understanding professional backgrounds.
 
 ```sql
 select
@@ -23,6 +30,7 @@ where
 ```
 
 ### List positions for a profile
+This query is used to gain insights into the professional history of a specific LinkedIn profile. It organizes the user's past positions by company, title, and tenure, allowing for a comprehensive review of their career progression.
 
 ```sql
 select
@@ -42,6 +50,7 @@ order by
 ```
 
 ### List skills for a profile
+Explore which skills are associated with a specific LinkedIn profile. This can be used to assess an individual's proficiencies and understand their professional capabilities.
 
 ```sql
 select
@@ -54,6 +63,7 @@ where
 ```
 
 ### List education history for a profile
+Explore an individual's educational history, including the schools they attended and the degrees they obtained, in chronological order. This can be useful for background checks or understanding a person's qualifications.
 
 ```sql
 select
@@ -71,6 +81,7 @@ order by
 ```
 
 ### List certifications for a profile
+Discover the range of certifications associated with a specific LinkedIn profile to understand the individual's skills and qualifications. This could be useful for recruiters or hiring managers assessing a candidate's expertise in a particular field.
 
 ```sql
 select
@@ -83,6 +94,7 @@ where
 ```
 
 ### List contact details for a profile
+Explore the contact information associated with a specific LinkedIn profile. This can be useful for reaching out to potential collaborators, clients, or job candidates.
 
 ```sql
 select
@@ -97,6 +109,7 @@ where
 ```
 
 ### List additional contact details from nested arrays for a profile
+Determine the additional contact information for a specific LinkedIn profile. This could be useful for expanding your network or reaching out to potential business partners.
 
 ```sql
 select

@@ -11,6 +11,9 @@ LinkedIn is a professional networking platform that allows users to create profi
 
 The `linkedin_profile` table provides insights into LinkedIn profiles. As a recruiter or business development professional, explore profile-specific details through this table, including professional experiences, skills, and education. Utilize it to uncover information about potential candidates, such as their qualifications, experience, and skills, or to identify potential business partners.
 
+**Important Notes**
+- You must specify the `public_identifier` in the `where` clause to query this table.
+
 ## Examples
 
 ### Get profile information
@@ -101,9 +104,9 @@ select
   first_name,
   last_name,
   contact_info ->> 'emailAddress' as email,
-  contact_info -> 'address' as address 
+  contact_info -> 'address' as address
 from
-  linkedin_profile 
+  linkedin_profile
 where
   public_identifier = 'tuhintypical';
 ```
@@ -118,15 +121,15 @@ select
   contact_info ->> 'emailAddress' as email,
   contact_info -> 'address' as address,
   twitter.value ->> 'name' as twitter_handle,
-  phone.value ->> 'number' as phone_number 
+  phone.value ->> 'number' as phone_number
 from
-  linkedin_profile 
+  linkedin_profile
   left join
-    jsonb_array_elements(contact_info -> 'twitterHandles') as twitter 
-    on true 
+    jsonb_array_elements(contact_info -> 'twitterHandles') as twitter
+    on true
   left join
-    jsonb_array_elements(contact_info -> 'phoneNumbers') as phone 
-    on true 
+    jsonb_array_elements(contact_info -> 'phoneNumbers') as phone
+    on true
 where
   public_identifier = 'tuhintypical';
 ```

@@ -19,7 +19,20 @@ The `linkedin_profile` table provides insights into LinkedIn profiles. As a recr
 ### Get profile information
 Explore personal profile details on LinkedIn by specifying a user's public identifier. This can be useful in gathering industry-specific insights or understanding professional backgrounds.
 
-```sql
+```sql+postgres
+select
+  first_name,
+  last_name,
+  headline,
+  public_identifier,
+  industry
+from
+  linkedin_profile
+where
+  public_identifier = 'dboeke';
+```
+
+```sql+sqlite
 select
   first_name,
   last_name,
@@ -35,7 +48,7 @@ where
 ### List positions for a profile
 This query is used to gain insights into the professional history of a specific LinkedIn profile. It organizes the user's past positions by company, title, and tenure, allowing for a comprehensive review of their career progression.
 
-```sql
+```sql+postgres
 select
   j ->> 'companyName' as company_name,
   (j -> 'dateRange' -> 'start' -> 'year')::int as start_year,
@@ -52,10 +65,27 @@ order by
   start_year desc;
 ```
 
+```sql+sqlite
+select
+  json_extract(j.value, '$.companyName') as company_name,
+  json_extract(j.value, '$.dateRange.start.year') as start_year,
+  json_extract(j.value, '$.dateRange.end.year') as end_year,
+  json_extract(j.value, '$.title') as title,
+  json_extract(j.value, '$.description') as description
+from
+  linkedin_profile as p,
+  json_each(positions) as c,
+  json_each(json_extract(c.value, '$.profilePositionInPositionGroup.elements')) as j
+where
+  p.public_identifier = 'nathan-wallace-86470'
+order by
+  start_year desc;
+```
+
 ### List skills for a profile
 Explore which skills are associated with a specific LinkedIn profile. This can be used to assess an individual's proficiencies and understand their professional capabilities.
 
-```sql
+```sql+postgres
 select
   s ->> 'name' as skill
 from
@@ -65,10 +95,20 @@ where
   p.public_identifier = 'dboeke';
 ```
 
+```sql+sqlite
+select
+  json_extract(s.value, '$.name') as skill
+from
+  linkedin_profile as p,
+  json_each(skills) as s
+where
+  p.public_identifier = 'dboeke';
+```
+
 ### List education history for a profile
 Explore an individual's educational history, including the schools they attended and the degrees they obtained, in chronological order. This can be useful for background checks or understanding a person's qualifications.
 
-```sql
+```sql+postgres
 select
   e -> 'school' ->> 'name' as school_name,
   e ->> 'degreeName' as degree_name,
@@ -83,10 +123,25 @@ order by
   start_year desc;
 ```
 
+```sql+sqlite
+select
+  json_extract(e.value, '$.school.name') as school_name,
+  json_extract(e.value, '$.degreeName') as degree_name,
+  json_extract(e.value, '$.dateRange.start.year') as start_year,
+  json_extract(e.value, '$.dateRange.end.year') as end_year
+from
+  linkedin_profile as p,
+  json_each(education) as e
+where
+  p.public_identifier = 'e-gineer'
+order by
+  start_year desc;
+```
+
 ### List certifications for a profile
 Discover the range of certifications associated with a specific LinkedIn profile to understand the individual's skills and qualifications. This could be useful for recruiters or hiring managers assessing a candidate's expertise in a particular field.
 
-```sql
+```sql+postgres
 select
   c ->> 'name' as skill
 from
@@ -96,10 +151,20 @@ where
   p.public_identifier = 'dglosser';
 ```
 
+```sql+sqlite
+select
+  json_extract(c.value, '$.name') as skill
+from
+  linkedin_profile as p,
+  json_each(certifications) as c
+where
+  p.public_identifier = 'dglosser';
+```
+
 ### List contact details for a profile
 Explore the contact information associated with a specific LinkedIn profile. This can be useful for reaching out to potential collaborators, clients, or job candidates.
 
-```sql
+```sql+postgres
 select
   first_name,
   last_name,
@@ -111,10 +176,22 @@ where
   public_identifier = 'tuhintypical';
 ```
 
+```sql+sqlite
+select
+  first_name,
+  last_name,
+  json_extract(contact_info, '$.emailAddress') as email,
+  json_extract(contact_info, '$.address') as address
+from
+  linkedin_profile
+where
+  public_identifier = 'tuhintypical';
+```
+
 ### List additional contact details from nested arrays for a profile
 Determine the additional contact information for a specific LinkedIn profile. This could be useful for expanding your network or reaching out to potential business partners.
 
-```sql
+```sql+postgres
 select
   first_name,
   last_name,
@@ -130,6 +207,22 @@ from
   left join
     jsonb_array_elements(contact_info -> 'phoneNumbers') as phone
     on true
+where
+  public_identifier = 'tuhintypical';
+```
+
+```sql+sqlite
+select
+  first_name,
+  last_name,
+  json_extract(contact_info, '$.emailAddress') as email,
+  contact_info as address,
+  json_extract(twitter.value, '$.name') as twitter_handle,
+  json_extract(phone.value, '$.number') as phone_number
+from
+  linkedin_profile,
+  json_each(json_extract(contact_info, '$.twitterHandles')) as twitter,
+  json_each(json_extract(contact_info, '$.phoneNumbers')) as phone
 where
   public_identifier = 'tuhintypical';
 ```

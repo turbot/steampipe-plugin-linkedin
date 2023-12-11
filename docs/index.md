@@ -8,6 +8,7 @@ name: linkedin
 description: Steampipe plugin to query LinkedIn profiles.
 og_description: Query LinkedIn with SQL! Open source CLI. No DB required.
 og_image: "/images/plugins/turbot/linkedin-social-graphic.png"
+engines: ["steampipe", "sqlite", "postgres", "export"]
 ---
 
 # LinkedIn + Steampipe

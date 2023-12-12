@@ -13,7 +13,7 @@ engines: ["steampipe", "sqlite", "postgres", "export"]
 
 # LinkedIn + Steampipe
 
-[Steampipe](https://steampipe.io) is an open source CLI to instantly query cloud APIs using SQL.
+[Steampipe](https://steampipe.io) is an open-source zero-ETL engine to instantly query cloud APIs using SQL.
 
 [LinkedIn](https://linkedin.com) is a business and employment-focused social media platform.
 

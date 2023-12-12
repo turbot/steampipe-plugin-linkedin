@@ -8,11 +8,12 @@ name: linkedin
 description: Steampipe plugin to query LinkedIn profiles.
 og_description: Query LinkedIn with SQL! Open source CLI. No DB required.
 og_image: "/images/plugins/turbot/linkedin-social-graphic.png"
+engines: ["steampipe", "sqlite", "postgres", "export"]
 ---
 
 # LinkedIn + Steampipe
 
-[Steampipe](https://steampipe.io) is an open source CLI to instantly query cloud APIs using SQL.
+[Steampipe](https://steampipe.io) is an open-source zero-ETL engine to instantly query cloud APIs using SQL.
 
 [LinkedIn](https://linkedin.com) is a business and employment-focused social media platform.
 
@@ -78,7 +79,4 @@ the plugin:
 Environment variables are also available as an alternate configuration method:
 * `LINKEDIN_TOKEN`
 
-## Get involved
 
-* Open source: https://github.com/turbot/steampipe-plugin-linkedin
-* Community: [Join #steampipe on Slack →](https://turbot.com/community/join)

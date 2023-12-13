@@ -1,3 +1,7 @@
+## v0.5.1 [2023-12-12]
+
+- Fixed the connection config vriable definition to only use `hcl` syntax.
+
 ## v0.5.0 [2023-12-12]
 
 _What's new?_

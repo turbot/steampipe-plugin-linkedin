@@ -5,7 +5,7 @@ import (
 )
 
 type linkedinConfig struct {
-	Token *string `cty:"token" hcl:"token"`
+	Token *string `hcl:"token"`
 }
 
 func ConfigInstance() interface{} {

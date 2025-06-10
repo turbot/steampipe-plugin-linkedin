@@ -6,7 +6,7 @@ toolchain go1.23.2
 
 require (
 	github.com/tamboto2000/golinkedin v1.12.1
-	github.com/turbot/steampipe-plugin-sdk/v5 v5.11.6
+	github.com/turbot/steampipe-plugin-sdk/v5 v5.11.7
 )
 
 require (

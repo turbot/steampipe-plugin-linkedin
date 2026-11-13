@@ -10,8 +10,8 @@ import (
 
 	"github.com/tamboto2000/golinkedin"
 
-	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
+	"github.com/turbot/steampipe-plugin-sdk/v6/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v6/plugin/transform"
 )
 
 func connect(ctx context.Context, d *plugin.QueryData) (*golinkedin.Linkedin, error) {
